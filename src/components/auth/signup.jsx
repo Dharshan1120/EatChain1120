@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "../../firebase/firebaseconfig";
+import { auth } from "../../firebase/firebaseConfig"; // ✅ fixed import
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {

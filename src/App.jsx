@@ -1,15 +1,26 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "/pages/Login";
-import Signup from "/pages/Signup";
-import Home from "/pages/Home";
+import Signup from "./components/auth/signup";
+import Login from "./components/auth/login";
+import Home from "./pages/Home";
+import RequireAuth from "./components/auth/RequireAuth"; // ✅ your auth wrapper
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* ✅ Protected route */}
+        <Route
+          path="/home"
+          element={
+            <RequireAuth>
+              <Home />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </Router>
   );
