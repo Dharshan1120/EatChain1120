@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./components/auth/signup";
 import Login from "./components/auth/login";
-import Home from "./pages/Home";
+import Home from "/pages/Home";
 import RequireAuth from "./components/auth/RequireAuth"; // ✅ your auth wrapper
 
 function App() {

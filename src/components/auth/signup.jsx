@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { auth } from "../../firebase/firebaseConfig"; // ✅ fixed import
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Signup() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("Signup successful!");
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful!");
     } catch (err) {
       alert(err.message);
     }
@@ -18,8 +18,8 @@ export default function Signup() {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow rounded">
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-      <form onSubmit={handleSignup}>
+      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <form onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
@@ -38,9 +38,9 @@ export default function Signup() {
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
         >
-          Sign Up
+          Login
         </button>
       </form>
     </div>
